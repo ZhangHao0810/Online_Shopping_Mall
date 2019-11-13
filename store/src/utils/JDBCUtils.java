@@ -1,13 +1,12 @@
 package utils;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import javax.sql.DataSource;
-
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class JDBCUtils {
 	private static ComboPooledDataSource ds = new ComboPooledDataSource();
@@ -125,4 +124,11 @@ public class JDBCUtils {
 			e.printStackTrace();
 		}
 	}
+
+	/** 2019/11/12 13:46
+	 * main函数用来检测连接是否能成功.
+	*/
+//	public static void main(String[] args) throws SQLException {
+//		System.out.println(getConnection());
+//	}
 }

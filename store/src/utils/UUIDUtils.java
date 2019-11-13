@@ -29,5 +29,9 @@ public class UUIDUtils {
 	
 	public static void main(String[] args) {
 		System.out.println(getId());
+
+//		String str = UUID.randomUUID().toString();
+//		System.out.println();
+
 	}
 }
