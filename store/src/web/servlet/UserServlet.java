@@ -4,6 +4,7 @@ import domain.User;
 import service.UserService;
 import service.serviceImp.UserServiceImp;
 import utils.MyBeanUtils;
+import utils.UUIDUtils;
 import web.base.BaseServlet;
 
 import javax.servlet.ServletException;
@@ -23,7 +24,8 @@ public class UserServlet extends BaseServlet {
         return "/jsp/register.jsp";
     }
 
-    public String userRegist(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+    public String userRegister(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //     1.接收表单参数,getParameterMap返回键值对.
         Map<String, String[]> map = request.getParameterMap();
         User user = new User();
@@ -31,6 +33,11 @@ public class UserServlet extends BaseServlet {
          * 利用MyBeanUtil来做,一句话搞定接收参数并赋值.利用反射. 忘了的话去看MyBeanUtils的源码
          */
         MyBeanUtils.populate(user, map);
+//        为用户的其他属性赋值.
+        user.setUid(UUIDUtils.getId());
+        user.setState(0);
+        user.setCode(UUIDUtils.getCode());
+        System.out.println(user);
 
 //      2.调用业务层注册功能
         UserService userService = new UserServiceImp();

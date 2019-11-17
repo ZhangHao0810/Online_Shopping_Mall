@@ -23,7 +23,7 @@ public class UserServiceImp implements UserService {
     @Override
     public void userRegister(User user) throws SQLException {
         UserDao userDao = new UserDaoImp();
-        UserDao.userRegister(user);
+        userDao.userRegister(user);
     }
     
 

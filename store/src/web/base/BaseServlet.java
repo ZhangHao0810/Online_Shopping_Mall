@@ -7,11 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-/**
- * @Description:   这是一个通用的Servlet,防止Servlet文件冗余而设置.通过客户端传入method=? 利用反射来查找并执行子类(子servlet)的相应方法.前端不用链接Servlet,链接method即可.大大减少了Servlet的数量.
- * @author          ZhangHao
- * @CreateDate:     2019/11/13 20:47
-*/
 public class BaseServlet extends HttpServlet {
 	@Override
 	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,7 +39,7 @@ public class BaseServlet extends HttpServlet {
 	}
 
 	// 默认方法
-	public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception{
 		return null;
 	}
 
